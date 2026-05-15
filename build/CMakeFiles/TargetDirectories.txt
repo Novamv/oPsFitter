@@ -1,0 +1,3 @@
+/sps/juno/mlecocq/oPs/build/CMakeFiles/oPs.dir
+/sps/juno/mlecocq/oPs/build/CMakeFiles/edit_cache.dir
+/sps/juno/mlecocq/oPs/build/CMakeFiles/rebuild_cache.dir

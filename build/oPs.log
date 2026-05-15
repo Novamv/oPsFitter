@@ -1,0 +1,147 @@
+Info: Using Hamamatsu information only!
+Info: Generating PDF with type data
+Info: Building PDF with Hamamatsu only. File Suffix:_Hama
+Info: Generating Ge68 PDF
+Collection name='TObjArray', class='TObjArray', size=200
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824064944.001_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824064949.002_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824064954.003_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065001.004_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065004.005_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065009.006_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065013.007_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065018.008_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065024.009_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065030.010_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065032.011_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065038.012_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065044.013_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065050.014_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065054.015_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065102.016_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065104.017_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065110.018_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065114.019_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065121.020_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065126.021_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065130.022_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065137.023_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065139.024_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065145.025_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065149.026_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065155.027_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065202.028_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065205.029_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065211.030_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065218.031_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065219.032_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065224.033_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065228.034_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065236.035_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065241.036_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065246.037_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065247.038_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065248.039_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065253.040_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065259.041_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065304.042_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065309.043_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065316.044_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065321.045_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065325.046_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065333.047_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065337.048_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065340.049_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065345.050_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065351.051_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065358.052_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065400.053_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065406.054_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065411.055_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065416.056_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065421.057_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065429.058_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065433.059_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065439.060_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065443.061_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065448.062_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065454.063_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065458.064_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065502.065_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065507.066_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065512.067_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065519.068_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065524.069_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065531.070_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065536.071_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065539.072_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065545.073_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065548.074_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065555.075_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065559.076_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065605.077_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065608.078_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065613.079_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065618.080_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065624.081_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065626.082_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065636.083_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065640.084_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065642.085_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065650.086_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065652.087_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065657.088_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065706.089_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065708.090_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065713.091_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065717.092_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065723.093_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065730.094_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065734.095_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065740.096_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065743.097_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065749.098_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065753.099_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065758.100_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065803.101_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065807.102_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065813.103_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065818.104_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065823.105_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065828.106_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065833.107_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065839.108_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065846.109_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065849.110_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065855.111_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065901.112_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065904.113_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065910.114_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065913.115_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065918.116_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065923.117_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065927.118_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065931.119_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065937.120_plain.root
+ OBJ: TChainElement	Calib	/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0.ds-2.global_trigger.20250824065940.121_plain.root
+Total entries 532769
+****************************************
+Minimizer is Minuit2 / Migrad
+Chi2                      =      1302.81
+NDf                       =           19
+Edm                       =  1.01132e-07
+NCalls                    =           78
+Constant                  =      1859.39   +/-   21.2022     
+Mean                      =      2041.62   +/-   0.897279    
+Sigma                     =      111.919   +/-   0.985447     	 (limited)
+Info in <TCanvas::SaveAs>: ROOT file Ge68data_charge.root has been created
+Hama Only: 1 suffix: _Hama
+[>                                                 ] 0 %[>                                                 ] 1 %[=>                                                ] 3 %[==>                                               ] 5 %[===>                                              ] 7 %[====>                                             ] 9 %[=====>                                            ] 11 %[======>                                           ] 13 %[=======>                                          ] 15 %[========>                                         ] 16 %[=========>                                        ] 18 %[==========>                                       ] 20 %[===========>                                      ] 22 %[============>                                     ] 24 %[=============>                                    ] 26 %[==============>                                   ] 28 %[===============>                                  ] 30 %[===============>                                  ] 31 %[================>                                 ] 33 %[=================>                                ] 35 %[==================>                               ] 37 %[===================>                              ] 39 %[====================>                             ] 41 %[=====================>                            ] 43 %[======================>                           ] 45 %[=======================>                          ] 46 %[========================>                         ] 48 %[=========================>                        ] 50 %[==========================>                       ] 52 %[===========================>                      ] 54 %[============================>                     ] 56 %[=============================>                    ] 58 %[==============================>                   ] 60 %[==============================>                   ] 61 %[===============================>                  ] 63 %[================================>                 ] 65 %[=================================>                ] 67 %[==================================>               ] 69 %[===================================>              ] 71 %[====================================>             ] 73 %[=====================================>            ] 75 %[======================================>           ] 76 %[=======================================>          ] 78 %[========================================>         ] 80 %[=========================================>        ] 82 %[==========================================>       ] 84 %[===========================================>      ] 86 %[============================================>     ] 88 %[=============================================>    ] 90 %[=============================================>    ] 91 %[==============================================>   ] 93 %[===============================================>  ] 95 %[================================================> ] 97 %[=================================================>] 99 %[==================================================] 100 %****************************************
+Minimizer is Minuit2 / Migrad
+Chi2                      =      77.6402
+NDf                       =           74
+Edm                       =  9.03096e-19
+NCalls                    =           15
+p0                        =      2439.03   +/-   5.70267     
+Creating PDF file
+Info: Ge68 PDF generated in 0.463146 mins
