@@ -19,7 +19,8 @@ int main(int argc, char** argv){
     
     cxxopts::Options options("oPs fit algorithm", "oPs fit argument parser");
     options.add_options()
-        ("index", "Entry of IBD event", cxxopts::value<int>()->default_value("0"))
+        ("begin", "Entry of IBD event", cxxopts::value<int>()->default_value("0"))
+        ("end", "Final entry of IBD event", cxxopts::value<int>()->default_value("-1"))
         ("data-type", "Data type to fit [MC, data]", cxxopts::value<std::string>()->default_value("data"))
         ("generatePDF", "Build MC/data PDF", cxxopts::value<bool>()->default_value("false"))
         ("SimEnergy", "Positron energy in MC [1, 2, 3] MeV", cxxopts::value<std::string>()->default_value("3"))
@@ -43,7 +44,8 @@ int main(int argc, char** argv){
     bool buildPDF        = args["generatePDF"].as<bool>();
     bool HamaOnly        = args["hamamatsu"].as<bool>();
     
-    int index            = args["index"].as<int>();
+    int begin            = args["begin"].as<int>();
+    int end              = args["end"].as<int>();
     int xmin             = args["xmin"].as<int>();
     int xmax             = args["xmax"].as<int>();
     int nbin             = args["nbin"].as<int>();
@@ -51,22 +53,28 @@ int main(int argc, char** argv){
     std::string reprod   = args["reprod"].as<std::string>();
     std::string datatype = args["data-type"].as<std::string>();
 
+    std::string suffix = "";
+
     // ================================================
     // =============  Setup  =============
     // ================================================
     
     Helper helper(debug, xmin, xmax, nbin, datatype);
-    if(HamaOnly) helper.SetHamaOnly();
+    if(HamaOnly) {
+        helper.SetHamaOnly();
+        suffix = "_Hama";
+    }
     if(buildPDF) helper.GeneratePDF();
     
     FitParameters fit_results;
     Fitter PositroniumFitter(debug, HamaOnly, xmin, xmax, nbin, datatype);
 
     int entry;
+    float Recx, Recy, Recz, RecEnergy;
     TFile* outfile;
     TTree* FitTree;
     if(!debug){
-        outfile = new TFile(Form("/sps/juno/mlecocq/oPs/util/oPs_FitResult_%s.root", datatype.c_str()), "RECREATE");
+        outfile = new TFile(Form("/sps/juno/mlecocq/oPs/root/%s/oPs_FitResult_%s_%d%s.root", datatype.c_str(), datatype.c_str(), begin, suffix.c_str()), "RECREATE");
         FitTree = new TTree("fit", "oPs Fit result");
 
         FitTree->Branch("Entry",       &entry);
@@ -93,17 +101,26 @@ int main(int argc, char** argv){
     helper.LoadData(delay); // Load data TChain and variables
     
     TH1F* hdata = new TH1F(Form("h%s", datatype.c_str()), Form("h%s", datatype.c_str()), nbin, xmin, xmax);
+    
     int n = -1;
-    for (size_t i = index; i < helper.nEntries; ++i){
+    int Entries = (end != -1 && end <= helper.nEntries) ? end : helper.nEntries;
+
+    std::cout << "\nInfo Processing entries " << begin << " to " << Entries << std::endl;
+
+    for (size_t i = begin; i < Entries; ++i){
         n++;
         entry = i;
-        if(datatype == "MC") helper.Calib.GetEntry(i);
+        if(datatype == "MC") {
+            helper.Calib.GetEntry(i);
+            helper.Reco.GetEntry(i);
+        }
         if(datatype == "data") {
             helper.IBD.GetEntry(i);
-            if(helper.Tag != "Prompt" && !delay) continue;
-            else if(delay && helper.Tag != "Delay") continue;
+            if(*helper.Tag != "Prompt" && !delay) continue;
+            else if(delay && *helper.Tag != "Delay") continue;
+            if(helper.RecEnergy < 1.022 || helper.RecEnergy > 3.5) continue;
         }
-
+        
         hdata->Reset("ICE");
         for (size_t hit = 0; hit < helper.PmtIDCalib->size(); ++hit){
             int pmtid = helper.PmtIDCalib->at(hit);
@@ -118,24 +135,22 @@ int main(int argc, char** argv){
         PositroniumFitter.DoFit();
         fit_results = PositroniumFitter.FetchParams();
 
-        SimDecayTime = helper.oPsTrueDecay[i];
-        if(delay) SimDecayTime = 0.0;
         if(debug) {
-            Plot(hdata, fit_results, datatype, helper.EntryNb);
+            SimDecayTime = helper.oPsTrueDecay[i];
+            if(delay) SimDecayTime = 0.0;
+            Plot(hdata, fit_results, datatype, entry);
             if ( n >= 0) break;
         }
-        if(!debug) FitTree->Fill();
+        else FitTree->Fill();
     }
     
     if(!debug){
         outfile->cd();
         FitTree->Write();
-        helper.hGe68->Write();
+        // helper.hGe68->Write();
         outfile->Close();
     }
-
-    delete hdata;
-
+    return 0;
 }
 
 

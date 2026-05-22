@@ -172,12 +172,12 @@ bool Helper::CreateGe68PDF(const std::string& fname){
     TH1F* hCharge = new TH1F("hCharge", "hCharge", 100, 0, 3000);
 
     float lo_bound = 1000;
-    float hi_bound = 2500;
+    float hi_bound = 3000;
     if(hamaOnly) {
-        lo_bound = 350; 
-        hi_bound = 500;
+        lo_bound = 300; 
+        hi_bound = 700;
     }
-    TH1F* hExpected = new TH1F("hExpected", "hExpected", 150, lo_bound, hi_bound);
+    TH1F* hExpected = new TH1F("hExpected", "hExpected", 200, lo_bound, hi_bound);
 
     TCanvas* c1 = new TCanvas("cShift1", "Shift example", 800, 500);
     TCanvas* c2 = new TCanvas("cShift2", "Accumulated shift", 800, 500);
@@ -186,7 +186,7 @@ bool Helper::CreateGe68PDF(const std::string& fname){
     
     for(size_t i = 0; i < nEntries; i++) {
         Ge68Calib.GetEntry(i);
-        hCharge->Fill(ChargeTotLpmt);
+        if(ChargeTotLpmt > 500) hCharge->Fill(ChargeTotLpmt);
     }
 
     float mean_q = hCharge->GetBinCenter(hCharge->GetMaximumBin());
@@ -213,7 +213,7 @@ bool Helper::CreateGe68PDF(const std::string& fname){
     int n = -1;
     for(size_t i = 0; i < Ge68Calib.GetEntries(); i++){
 
-        if (i % 1000 == 0 || i == nEntries - 1) {
+        if (i % 100000 == 0 || i == nEntries - 1) {
             ProgressBar(i + 1, nEntries);
         }
 
@@ -351,7 +351,7 @@ bool Helper::CreateGe68PDF(const std::string& fname){
 
     std::cout << "Info: Ge68 PDF generated in " << duration.count() << " mins" << std::endl;
 
-    hGe68 = (TH1F*)hPDF->Clone();
+    hGe68 = (TH1F*)hPDF->Clone("hGe68");
     delete h;
     return true;
 }
@@ -442,6 +442,7 @@ void Helper::LoadData(bool delay){
         Reco.SetBranchAddress("Recz",      &Recz);
 
         nEntries = Calib.GetEntries();
+        Calib.AddFriend(&Reco);
         std::cout << "Calib Entries " << nEntries << std::endl;
     }else{
         fname = "/sps/juno/mlecocq/Data/Physics/Processing/IBD/ReProd25C/*.root";
@@ -467,6 +468,7 @@ void Helper::LoadData(bool delay){
         IBD.SetBranchAddress("HitTimeCalibTOF", &HitTimeTOF);
 
         nEntries = IBD.GetEntries();
+        std::cout << "IBD Entries " << nEntries;
 
     }
 }

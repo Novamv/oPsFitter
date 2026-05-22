@@ -65,7 +65,7 @@ public:
     TChain IBD;   // data
 
     int nEntries, EntryNb;
-    TString Tag;
+    TString *Tag = nullptr;
     float RecEnergy, Recx, Recy, Recz;
     std::vector<int>* PmtIDCalib = nullptr;
     std::vector<double>* HitTimeTOF = nullptr;
