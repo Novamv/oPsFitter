@@ -36,10 +36,10 @@ Fitter::~Fitter()
 // ─────────────────────────────────────────────────────────────────────────────
 const Fitter::ParCfg Fitter::kParConfig[kNPar] = {
     // name     step    lo_factor  hi_factor
-    { "t0",    0.005,  -0.30,      0.30  },   // kT0    — (bounds in %)
+    { "t0",    0.005,  -0.10,      0.10  },   // kT0    — (bounds in %)
     { "dt",    0.005,   0.00,      30.0  },   // kDt    — hard coded bounds
-    { "aIoni", 100.0,  -0.50,      0.50  },   // kAIoni — (bounds in %)
-    { "aoPs",  100.0,  -0.25,      0.25  },   // kAoPs  — (bounds in %)
+    { "aIoni", 100.0,  -0.30,      0.30  },   // kAIoni — (bounds in %)
+    { "aoPs",  100.0,  -0.30,      0.30  },   // kAoPs  — (bounds in %)
     { "const", 0.1,    -0.10,      0.10  },   // kConst — (bounds in %)
 };
 
@@ -94,7 +94,7 @@ void Fitter::DoFit()
         Amp_oPs = 1.022 * oPsCoeff;
     
         // Ionisation amplitude: whatever is left
-        Amp_Ioni = hdata->Integral() - Amp_oPs - (bgnd * nbin);
+        Amp_Ioni = hdata->Integral() -  Amp_oPs;
 
         // PDF initial shift
         double inflection_data = GetInflectionPoint(hdata);
@@ -133,11 +133,11 @@ void Fitter::DoFit()
         c->SaveAs("PreScanFit.root");
     }
 
-    if(run_prescan){
-        auto scan = PreScanT0Dt(initVals); // t0 and dt first guesses are modified here
-        chi2prescan = scan.chi2;
-        initVals[kT0] = scan.t0; initVals[kDt] = scan.dt;
-    }
+    // if(run_prescan){
+    //     auto scan = PreScanT0Dt(initVals); // t0 and dt first guesses are modified here
+    //     chi2prescan = scan.chi2;
+    //     initVals[kT0] = scan.t0; initVals[kDt] = scan.dt;
+    // }
 
     if(debug){
         TCanvas* c = new TCanvas();
@@ -181,7 +181,7 @@ void Fitter::DoFit()
         }
         if(lo > hi) std::swap(lo, hi);        // guard for negative initVals
 
-        if(i == kConst) simplex.SetFixedVariable(i, config.name, initVals[i]);
+        // if(i == kConst) simplex.SetFixedVariable(i, config.name, initVals[i]);
         else simplex.SetLimitedVariable(i, config.name, initVals[i], config.step, lo, hi);
     }
     simplex.FixVariable(kConst);
@@ -225,7 +225,7 @@ void Fitter::DoFit()
             }
             if(lo > hi) std::swap(lo, hi);
     
-            if(i == kConst) migrad->SetFixedVariable(i, config.name, best_par[i]);
+            // if(i == kConst) migrad->SetFixedVariable(i, config.name, best_par[i]);
             else migrad->SetLimitedVariable(i, config.name, best_par[i], config.step, lo, hi);
         }
         
@@ -387,8 +387,11 @@ double Fitter::NLL(const double* par)
     double expected_oPs = 1.022 * oPsCoeff; // Convert energy to amplitude
     double pull = (aoPs - expected_oPs) / (1.022 * oPsCoeff_err); // pearson chi2
 
-    LogL += pull*pull;
+    // double pull_ioni = (hdata->Integral() - aIoni - aoPs) / (oPsCoeff_err);
+    // LogL += pull_ioni*pull_ioni;
 
+
+    LogL += pull*pull;
     return LogL;
 }
 // ─────────────────────────────────────────────────────────────────────────────
@@ -458,7 +461,9 @@ void Fitter::LoadPDF()
     const std::string tag = (datatype == "MC") ? "MC" : "data";
     const std::string suffix = (hamaOnly) ? "_Hama" : "";
     const std::string foPsName = "/sps/juno/mlecocq/oPs/util/Ge68" + tag + "PDF_"+ std::to_string(nbin) +"bins" + suffix + ".root";
-    const std::string fIoniName = foPsName; // same source - change if needed
+    // const std::string fIoniName = foPsName; // same source - change if needed
+    const std::string fIoniName = "/sps/juno/mlecocq/oPs/util/"+ pdf_source + tag + "PDF_"+ std::to_string(nbin) +"bins" + suffix + ".root";
+
 
     // helper function that loads the PDFs for each component
     auto readHist = [&](const std::string& fname, const std::string& hname,
@@ -508,8 +513,8 @@ void Fitter::LoadPDF()
         return out;
     };
 
-    hPDF_oPs = readHist(foPsName, "hTime", "oPs");
-    hPDF_ioni = readHist(fIoniName, "hTime", "ioni");
+    hPDF_oPs = readHist(foPsName, "hTime_shift", "oPs");
+    hPDF_ioni = readHist(fIoniName, "hTime_shift", "ioni");
 
     std::cout << "LoadPDF: Coeff=" << oPsCoeff << "\n";
 

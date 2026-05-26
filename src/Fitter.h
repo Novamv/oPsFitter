@@ -77,6 +77,8 @@ private:
 
     bool converged;
 
+    std::string pdf_source = "Ge68";
+
     // oPs amplitude conversion factor
     double oPsCoeff     = 0.0; // set in LoadPDF
     double oPsCoeff_err = 0.0; // set in LoadPDF
@@ -127,6 +129,9 @@ public:
     
     // Run one fit routine
     void DoFit();
+
+    // For Ionisation PDF
+    void UsePDFSource(const std::string& source) {pdf_source = source;};
     
     // Extract results after DoFit()
     FitParameters FetchParams();

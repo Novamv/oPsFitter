@@ -23,6 +23,7 @@ int main(int argc, char** argv){
         ("end", "Final entry of IBD event", cxxopts::value<int>()->default_value("-1"))
         ("data-type", "Data type to fit [MC, data]", cxxopts::value<std::string>()->default_value("data"))
         ("generatePDF", "Build MC/data PDF", cxxopts::value<bool>()->default_value("false"))
+        ("sourcePDF", "Build MC/data PDF", cxxopts::value<std::string>()->default_value("Ge68"))
         ("SimEnergy", "Positron energy in MC [1, 2, 3] MeV", cxxopts::value<std::string>()->default_value("3"))
         ("delay", "Fit delay signal", cxxopts::value<bool>()->default_value("false"))
         ("hamamatsu", "Select only hamamatsu PMTs", cxxopts::value<bool>()->default_value("false"))
@@ -52,8 +53,9 @@ int main(int argc, char** argv){
 
     std::string reprod   = args["reprod"].as<std::string>();
     std::string datatype = args["data-type"].as<std::string>();
+    std::string source = args["sourcePDF"].as<std::string>();
 
-    std::string suffix = "";
+    std::string suffix = "_All";
 
     // ================================================
     // =============  Setup  =============
@@ -64,17 +66,21 @@ int main(int argc, char** argv){
         helper.SetHamaOnly();
         suffix = "_Hama";
     }
-    if(buildPDF) helper.GeneratePDF();
+    if(buildPDF) helper.GeneratePDF(source);
     
     FitParameters fit_results;
     Fitter PositroniumFitter(debug, HamaOnly, xmin, xmax, nbin, datatype);
+    PositroniumFitter.UsePDFSource(source);
 
     int entry;
     float Recx, Recy, Recz, RecEnergy;
     TFile* outfile;
     TTree* FitTree;
     if(!debug){
-        outfile = new TFile(Form("/sps/juno/mlecocq/oPs/root/%s/oPs_FitResult_%s_%d%s.root", datatype.c_str(), datatype.c_str(), begin, suffix.c_str()), "RECREATE");
+        std::string type = (delay) ? "_delay" : "";
+        std::string outfname = "/sps/juno/mlecocq/oPs/root/" + datatype + "/subfiles/Fit" + type + "_" + std::to_string(begin) + suffix + ".root";
+ 
+        outfile = new TFile(outfname.c_str(), "RECREATE");
         FitTree = new TTree("fit", "oPs Fit result");
 
         FitTree->Branch("Entry",       &entry);
@@ -84,6 +90,9 @@ int main(int argc, char** argv){
         FitTree->Branch("Recz",        &helper.Recz);
         FitTree->Branch("t0",          &fit_results.t0);
         FitTree->Branch("dt",          &fit_results.dt);
+        if(datatype == "MC"){
+            FitTree->Branch("Truedt",  &SimDecayTime);
+        }
         FitTree->Branch("aIoni",       &fit_results.aIoni);
         FitTree->Branch("aoPs",        &fit_results.aoPs);
         FitTree->Branch("constant",    &fit_results.constant);
@@ -111,13 +120,17 @@ int main(int argc, char** argv){
         n++;
         entry = i;
         if(datatype == "MC") {
+            helper.Sim.GetEntry(i);
+            if(helper.InitT->size() <= 1) continue;
+
             helper.Calib.GetEntry(i);
             helper.Reco.GetEntry(i);
+            SimDecayTime = helper.oPsTrueDecay[i];
         }
         if(datatype == "data") {
             helper.IBD.GetEntry(i);
             if(*helper.Tag != "Prompt" && !delay) continue;
-            else if(delay && *helper.Tag != "Delay") continue;
+            // else if(delay && *helper.Tag != "Delay") continue;
             if(helper.RecEnergy < 1.022 || helper.RecEnergy > 3.5) continue;
         }
         
@@ -133,10 +146,11 @@ int main(int argc, char** argv){
         
         PositroniumFitter.setDataHist(hdata);
         PositroniumFitter.DoFit();
+        std::cout << " Fit results of evt " << i << " with energy = " << helper.RecEnergy << " MeV" << std::endl;
         fit_results = PositroniumFitter.FetchParams();
 
+        
         if(debug) {
-            SimDecayTime = helper.oPsTrueDecay[i];
             if(delay) SimDecayTime = 0.0;
             Plot(hdata, fit_results, datatype, entry);
             if ( n >= 0) break;

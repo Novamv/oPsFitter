@@ -106,9 +106,9 @@ double Helper::shift(TH1F* src, TH1F* dst, double TargetTime){
     return x_inflection;
 }
 
-bool Helper::CreateGe68PDF(const std::string& fname){
+bool Helper::CreatePDF(const std::string& fname, const std::string& source ){
     
-    std::cout << "Info: Generating Ge68 PDF with data type " << datatype << std::endl;
+    std::cout << "Info: Generating " << source << " PDF with data type " << datatype << std::endl;
 
     auto begin = std::chrono::high_resolution_clock::now();
 
@@ -119,57 +119,63 @@ bool Helper::CreateGe68PDF(const std::string& fname){
     std::vector<double>* HitTime = nullptr;
     std::vector<int>* PmtID = nullptr;
 
-    TChain Ge68Calib("Calib");
+    TChain Calib("Calib");
     // TChain Ge68Reco("Reco");
-    TChain Ge68Reco("Reco");
+    TChain Reco("Reco");
 
-    Ge68Calib.Add(fname.c_str());
-    Ge68Reco.Add(fname.c_str());
-    Ge68Calib.GetListOfFiles()->Print();
+    Calib.Add(fname.c_str());
+    Reco.Add(fname.c_str());
+    Calib.GetListOfFiles()->Print();
 
-    Ge68Calib.SetBranchStatus("*", 0);
-    Ge68Calib.SetBranchStatus("ChargeTotLPMT", 1);
-    Ge68Calib.SetBranchStatus("ChargeTotWP", 1);
-    Ge68Calib.SetBranchStatus("TimeStamp", 1);
-    Ge68Calib.SetBranchStatus("TriggerName", 1);
-    Ge68Calib.SetBranchStatus("HitTimeCalibTOF", 1);
-    Ge68Calib.SetBranchStatus("PmtIDCalib", 1);
+    Calib.SetBranchStatus("*", 0);
+    Calib.SetBranchStatus("ChargeTotLPMT", 1);
+    Calib.SetBranchStatus("ChargeTotWP", 1);
+    Calib.SetBranchStatus("TimeStamp", 1);
+    Calib.SetBranchStatus("TriggerName", 1);
+    Calib.SetBranchStatus("HitTimeCalibTOF", 1);
+    Calib.SetBranchStatus("PmtIDCalib", 1);
     
-    Ge68Calib.SetBranchAddress("ChargeTotLPMT", &ChargeTotLpmt);
-    Ge68Calib.SetBranchAddress("ChargeTotWP", &ChargeTotWP);
-    Ge68Calib.SetBranchAddress("TimeStamp", &TimeStamp);
-    Ge68Calib.SetBranchAddress("TriggerName", &TriggerName);
-    Ge68Calib.SetBranchAddress("HitTimeCalibTOF", &HitTime);
-    Ge68Calib.SetBranchAddress("PmtIDCalib", &PmtID);
+    Calib.SetBranchAddress("ChargeTotLPMT", &ChargeTotLpmt);
+    Calib.SetBranchAddress("ChargeTotWP", &ChargeTotWP);
+    Calib.SetBranchAddress("TimeStamp", &TimeStamp);
+    Calib.SetBranchAddress("TriggerName", &TriggerName);
+    Calib.SetBranchAddress("HitTimeCalibTOF", &HitTime);
+    Calib.SetBranchAddress("PmtIDCalib", &PmtID);
 
 
 
-    Ge68Reco.SetBranchStatus("*", 0);
-    Ge68Reco.SetBranchStatus("Recx", 1);
-    Ge68Reco.SetBranchStatus("Recy", 1);
-    Ge68Reco.SetBranchStatus("Recz", 1);
+    Reco.SetBranchStatus("*", 0);
+    Reco.SetBranchStatus("Recx", 1);
+    Reco.SetBranchStatus("Recy", 1);
+    Reco.SetBranchStatus("Recz", 1);
 
-    Ge68Reco.SetBranchAddress("Recx", &RECX);
-    Ge68Reco.SetBranchAddress("Recy", &RECY);
-    Ge68Reco.SetBranchAddress("Recz", &RECZ);
+    Reco.SetBranchAddress("Recx", &RECX);
+    Reco.SetBranchAddress("Recy", &RECY);
+    Reco.SetBranchAddress("Recz", &RECZ);
 
 
     // =============  Define some variables  =============
     
     TH1F* h = new TH1F("hTime", "hTime", nbin, xmin, xmax);
+    TH1F* h_shift = (TH1F*)h->Clone("hTime_shift");
 
-    int nEntries = Ge68Calib.GetEntries();
+    int nEntries = Calib.GetEntries();
     std::cout << "Total entries " << nEntries << std::endl;
     int nEvents = 0;
     int nHits = 0;
 
-    TH1F* hRef = (TH1F*)h->Clone("hRef");
-    TH1F* htemp = (TH1F*)h->Clone("htemp");
-    TH1F* htempTot = (TH1F*)h->Clone("htempTot");
-    TH1F* htemp_shift = (TH1F*)h->Clone("htemp_shift");
+    TH1F* htemp          = (TH1F*)h->Clone("htemp");
+    TH1F* htempTot       = (TH1F*)h->Clone("htempTot");
+    TH1F* htemp_shift    = (TH1F*)h->Clone("htemp_shift");
     TH1F* htemp_shiftTot = (TH1F*)h->Clone("htemp_shiftTot");
+    
+    // To save in root file
+    TH1F* hRef = (TH1F*)h->Clone("hRef");
+    TH1F* hBefore = (TH1F*)h->Clone("hBefore");
+    TH1F* hAfter = (TH1F*)h->Clone("hAfter");
 
-    TH1F* hCharge = new TH1F("hCharge", "hCharge", 100, 0, 3000);
+
+    TH1F* hCharge = new TH1F("hCharge", "hCharge", 350, 0, 7000);
 
     float lo_bound = 1000;
     float hi_bound = 3000;
@@ -185,7 +191,7 @@ bool Helper::CreateGe68PDF(const std::string& fname){
     // =============  Get charge spectrum  =============
     
     for(size_t i = 0; i < nEntries; i++) {
-        Ge68Calib.GetEntry(i);
+        Calib.GetEntry(i);
         if(ChargeTotLpmt > 500) hCharge->Fill(ChargeTotLpmt);
     }
 
@@ -203,7 +209,7 @@ bool Helper::CreateGe68PDF(const std::string& fname){
     hCharge->Draw();
     fgaus->SetLineColor(kRed+1);
     fgaus->Draw("same");
-    cCharge->SaveAs("Ge68data_charge.root");
+    cCharge->SaveAs("charge.root");
 
     // =============  Generate PDF  =============
 
@@ -211,16 +217,16 @@ bool Helper::CreateGe68PDF(const std::string& fname){
     
     uint64_t tLastMuon;
     int n = -1;
-    for(size_t i = 0; i < Ge68Calib.GetEntries(); i++){
+    for(size_t i = 0; i < Calib.GetEntries(); i++){
 
         if (i % 100000 == 0 || i == nEntries - 1) {
             ProgressBar(i + 1, nEntries);
         }
 
-        Ge68Calib.GetEntry(i);
+        Calib.GetEntry(i);
         if(!(ChargeTotLpmt >= mean_q-3*sig_q && ChargeTotLpmt <= mean_q+3*sig_q)) continue;
 
-        Ge68Reco.GetEntry(i);
+        Reco.GetEntry(i);
         
         double dt = 0.0;
         float rho = 0.0;
@@ -250,15 +256,17 @@ bool Helper::CreateGe68PDF(const std::string& fname){
             }
         
             double inflection = shift(htemp, htemp_shift); //shift histogram
-            h->Add(htemp_shift);
-            htempTot->Add(htemp);
-            htemp_shiftTot->Add(htemp_shift);
+            h->Add(htemp);
+            h_shift->Add(htemp_shift);
 
             hExpected->Fill(htemp->Integral()/1.022);
             
             if(n == 0) hRef->Add(htemp_shift);
             
-            if(n == 5){
+            if(n == 7){
+                hBefore->Add(htemp);
+                hAfter->Add(htemp_shift);
+
                 int maxy = hRef->GetMaximum()*1.1;
                 int miny = maxy/3;
                 gStyle->SetOptStat(0);
@@ -303,7 +311,7 @@ bool Helper::CreateGe68PDF(const std::string& fname){
 
     TF1* f = new TF1("f", "[0]", 50, 200);
     f->SetParameter(0, 4000);
-    h->Fit("f", "R");
+    h->Fit("f", "R0");
 
     for(int bin = 1; bin <= h->GetNbinsX(); bin++){
         double val = h->GetBinContent(bin);
@@ -333,15 +341,17 @@ bool Helper::CreateGe68PDF(const std::string& fname){
 
     Tree->Fill();
 
-    TFile* fout = new TFile(Form("/sps/juno/mlecocq/oPs/util/Ge68%sPDF_%ibins%s.root", datatype.c_str(), nbin, suffix.c_str()), "RECREATE");
+    TFile* fout = new TFile(Form("/sps/juno/mlecocq/oPs/util/%s%sPDF_%ibins%s.root", source.c_str(), datatype.c_str(), nbin, suffix.c_str()), "RECREATE");
     fout->cd();
     Tree->Write();
     hCharge->Write();
-    h->Write();
     hPDF->Write();
-    htempTot->Write();
-    htemp_shiftTot->Write();
+    h->Write();
+    h_shift->Write();
     hExpected->Write();
+    hRef->Write();
+    hBefore->Write();
+    hAfter->Write();
     c1->Write();
     c2->Write();
     fout->Close();
@@ -356,7 +366,7 @@ bool Helper::CreateGe68PDF(const std::string& fname){
     return true;
 }
 
-bool Helper::GeneratePDF(){
+bool Helper::GeneratePDF(const std::string source){
 
     bool pdf = false;
     if(hamaOnly) {
@@ -365,11 +375,11 @@ bool Helper::GeneratePDF(){
     }
     else suffix="";
 
-    std::string fGe68Name;
-    if(datatype == "MC") fGe68Name = "/sps/juno/mlecocq/oPs/MC/plain/"+juno_version+"/Ge68_1000Evts_"+juno_version+"_*_plainReco.root";
-    else fGe68Name = "/sps/juno/JunoData/Calib/2025/0824/RUN.9541.JUNODAQ.Calib-ACU-Ge68-Global-Pos-x0y0z0*_plain.root";
+    std::string fname;
+    if(datatype == "MC") fname = "/sps/juno/mlecocq/oPs/MC/plain/"+juno_version+"/"+source+"_1000Evts_"+juno_version+"_*_plainReco.root";
+    else fname = "/sps/juno/JunoData/Calib/2025/0824/RUN.*.JUNODAQ.Calib-ACU-"+source+"-Global-Pos-x0y0z0*_plain.root";
     
-    pdf = CreateGe68PDF(fGe68Name);
+    pdf = CreatePDF(fname, source);
     return pdf;
 }
 
@@ -442,10 +452,13 @@ void Helper::LoadData(bool delay){
         Reco.SetBranchAddress("Recz",      &Recz);
 
         nEntries = Calib.GetEntries();
-        Calib.AddFriend(&Reco);
         std::cout << "Calib Entries " << nEntries << std::endl;
+
+        Calib.AddFriend(&Sim);
+        Calib.AddFriend(&Reco);
     }else{
         fname = "/sps/juno/mlecocq/Data/Physics/Processing/IBD/ReProd25C/*.root";
+        if(delay) fname = "/sps/juno/mlecocq/oPs/CalibData/Co60.root";
         IBD.Reset();
         IBD.Add(fname.c_str());
         IBD.GetListOfFiles()->Print();

@@ -34,17 +34,13 @@ private:
     
     // ── Create PDF ────────────────────────────────────────────────────────
     std::string suffix;
-    bool CreateGe68PDF(const std::string& fname);
+    bool CreatePDF(const std::string& fname, const std::string& source = "Ge68");
 
     double shift(TH1F* src, TH1F* dst, double TargetTime = 210 /*ns*/);
 
     // ── Sim ────────────────────────────────────────────────────────
-    TChain Sim;
-    int SimEvtID;
-    std::vector<int>* PDGID = nullptr;
-    std::vector<double>* InitT = nullptr;
-      
-public:
+    
+    public:
     Helper(bool debug_, int min_, int max_, int nbin_, std::string datatype_);
     ~Helper();
     
@@ -52,14 +48,19 @@ public:
     std::map<int, std::string> PmtType;
     std::map<int, double> oPsTrueDecay;
     TH1F* hGe68 = nullptr;
-
+    
     void ProgressBar(Long64_t current, Long64_t total, int width = 50);
-
+    
     // ── PDF ────────────────────────────────────────────────────────
     void SetHamaOnly() {hamaOnly = true;};
-    bool GeneratePDF();
-
+    bool GeneratePDF(const std::string source = "Ge68");
+    
     // ── Data ────────────────────────────────────────────────────────
+    TChain Sim;
+    int SimEvtID;
+    std::vector<int>* PDGID = nullptr;
+    std::vector<double>* InitT = nullptr;
+    
     TChain Calib; // MC
     TChain Reco;  // MC
     TChain IBD;   // data
